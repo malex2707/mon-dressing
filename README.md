@@ -22,4 +22,5 @@ php bin/console doctrine:fixtures:load
 Démarrer le serveur
 ```shell
 php bin/console server:run
+npm run watch
 ```
