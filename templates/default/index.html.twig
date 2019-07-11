@@ -6,4 +6,56 @@
 
     <h1>Accueil</h1>
 
+    <form action="{{ path('vetement_search') }}" method="get">
+        <label for="">J'ai</label>
+        <br>
+
+        <select name="type-from" id="">
+            {% for type in types %}
+                <option value="{{ type.id }}">
+                    {{ type.nom }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <br>
+
+        <select name="couleur" id="">
+
+            {% for couleur in couleurs %}
+                <option value="{{ couleur.id }}">
+                    {{ couleur.nom }}
+                </option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <select name="saison" id="">
+
+            {% for saison in saisons %}
+                <option value="{{ saison.id }}">
+                    {{ saison.nom }}
+                </option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label for="">Je cherche</label>
+
+        <br>
+
+        <select name="type-to" id="">
+
+            {% for type in types %}
+                <option value="{{ type.id }}">
+                    {{ type.nom }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+
+
+    </form>
+
 {% endblock %}

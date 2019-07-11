@@ -22,19 +22,20 @@ class VetementRepository extends ServiceEntityRepository
     // /**
     //  * @return Vetement[] Returns an array of Vetement objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function findSearch(int $typeTo, int $couleur)
     {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+        $qb = $this->createQueryBuilder('v');
+
+        return $qb->join('v.couleurs', 'c1')
+            ->join('c1.couleurs', 'c2')
+            ->andWhere('v.type = :type')
+            ->andWhere($qb->expr()->in('c2.id', ':couleur'))
+            ->setParameter('type', $typeTo)
+            ->setParameter('couleur', $couleur)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Vetement

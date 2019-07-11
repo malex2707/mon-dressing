@@ -22,15 +22,17 @@ class SaisonFixtures extends Fixture
         $this->addReference("saison-ete", $ete);
 
 
+        $automne = new Saison();
+        $automne->setNom("Automne");
+        $manager->persist($automne);
+        $this->addReference("saison-automne", $automne);
+
         $hiver = new Saison();
         $hiver->setNom("Hiver");
         $manager->persist($hiver);
         $this->addReference("saison-hiver", $hiver);
 
-        $automne = new Saison();
-        $automne->setNom("Automne");
-        $manager->persist($automne);
-        $this->addReference("saison-automne", $automne);
+
 
         $manager->flush();
     }
